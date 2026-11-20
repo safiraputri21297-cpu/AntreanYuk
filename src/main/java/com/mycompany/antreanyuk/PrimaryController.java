@@ -9,6 +9,7 @@ import java.net.Socket;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 
 public class PrimaryController {
 
@@ -32,10 +33,15 @@ public class PrimaryController {
         String nama = namaField.getText().trim();
 
         if (nama.isEmpty()) {
-            statusLabel.setText("Nama pasien harus diisi!");
-            return;
-        }
 
+    Alert alert = new Alert(Alert.AlertType.WARNING);
+    alert.setTitle("Peringatan");
+    alert.setHeaderText("Data Belum Lengkap");
+    alert.setContentText("Nama pasien harus diisi terlebih dahulu!");
+    alert.showAndWait();
+
+    return;
+}
         String hasil = kirimPerintah("AMBIL|" + nama);
 
         if (hasil != null && hasil.startsWith("BERHASIL|")) {

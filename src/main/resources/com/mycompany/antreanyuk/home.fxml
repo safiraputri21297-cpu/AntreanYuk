@@ -1,0 +1,48 @@
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER"
+      spacing="22"
+      prefWidth="650"
+      prefHeight="500"
+      style="-fx-background-color: #F4F7F5; -fx-padding: 35;"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.antreanyuk.HomeController">
+
+    <Label text="ANTREYUK"
+           style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #16834A;"/>
+
+    <Label text="Sistem Antrean Digital Klinik"
+           style="-fx-font-size: 17px; -fx-text-fill: #555555;"/>
+
+    <Label text="POLI UMUM"
+           style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+
+    <VBox alignment="CENTER"
+          spacing="15"
+          maxWidth="380"
+          style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 15;">
+
+        <Label text="Selamat Datang!"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+        <Label text="Silakan pilih jenis pengguna"/>
+
+        <Button text="MASUK SEBAGAI PASIEN"
+                onAction="#bukaPasien"
+                maxWidth="Infinity"
+                prefHeight="45"
+                style="-fx-background-color: #16834A; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <Button text="MASUK SEBAGAI ADMIN"
+                onAction="#bukaAdmin"
+                maxWidth="Infinity"
+                prefHeight="45"
+                style="-fx-background-color: #263D52; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </VBox>
+
+    <Label text="AntreYuk - Klinik Poli Umum"/>
+</VBox>

@@ -1,3 +1,4 @@
+
 package com.mycompany.antreanyuk;
 
 import javafx.application.Application;
@@ -7,35 +8,40 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
-public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException {
+        scene = new Scene(loadFXML("home"), 650, 500);
 
-    scene = new Scene(loadFXML("primary"), 650, 500);
-
-    stage.setTitle("AntreYuk - Sistem Antrean Klinik");
-    stage.setScene(scene);
-    stage.show();
-}
+        stage.setTitle("AntreYuk - Sistem Antrean Klinik");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        URL lokasi = App.class.getResource(
+            "/com/mycompany/antreanyuk/" + fxml + ".fxml"
+        );
+
+        System.out.println("Lokasi FXML: " + lokasi);
+
+        if (lokasi == null) {
+            throw new IOException("File FXML tidak ditemukan: " + fxml + ".fxml");
+        }
+
+        return new FXMLLoader(lokasi).load();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
-
 }
